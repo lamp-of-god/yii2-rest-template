@@ -1,8 +1,8 @@
 <?php
 
-namespace api\modules\v1\controllers;
+namespace docs\modules\v1\controllers;
 
-use api\controllers\DocsController;
+use docs\controllers\DocsController;
 
 
 class VersionController extends DocsController

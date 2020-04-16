@@ -12,9 +12,6 @@ return [
         'v1' => ['class' => 'docs\modules\v1\Module'],
     ],
     'components' => [
-        'errorHandler' => [
-            'errorAction' => \yii\web\ErrorAction::class,
-        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

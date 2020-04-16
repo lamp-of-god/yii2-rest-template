@@ -32,11 +32,7 @@ return [
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'enableStrictParsing' => true,
             'showScriptName' => false,
-            'rules' => [
-                'GET v1/version' => 'v1/version/index',
-            ],
         ]
     ],
     'params' => $params,

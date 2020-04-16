@@ -11,7 +11,9 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'api\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'v1' => ['class' => 'api\modules\v1\Module'],
+    ],
     'components' => [
         'request' => [
             'parsers' => [
@@ -35,8 +37,7 @@ return [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                'GET /' => 'version/index',
-                'GET version' => 'version/index',
+                'GET v1/version' => 'v1/version/index',
             ],
         ]
     ],

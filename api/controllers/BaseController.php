@@ -24,4 +24,12 @@ class BaseController extends \yii\rest\Controller
         }
         return ['error' => $exception->getMessage()];
     }
+
+    protected function success($result): array
+    {
+        return [
+            'error'  => null,
+            'result' => $result,
+        ];
+    }
 }

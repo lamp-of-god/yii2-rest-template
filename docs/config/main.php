@@ -8,25 +8,10 @@ return [
     'id' => 'docs',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'docs\controllers',
-    'bootstrap' => ['log'],
     'modules' => [
         'v1' => ['class' => 'docs\modules\v1\Module'],
     ],
     'components' => [
-        'request' => [
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
-            ]
-        ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
         'errorHandler' => [
             'errorAction' => \yii\web\ErrorAction::class,
         ],

@@ -1,5 +1,5 @@
 {
-    "name": "lamp-of-god/yii2-rest",
+    "name": "lamp-of-god/yii2-rest-template",
     "version": "0.1.0",
     "description": "Rest API server template based on Yii2",
     "type": "project",

@@ -16,7 +16,7 @@ use yii\web\Controller;
  *         version="1.0.0",
  *         title="API",
  *         @SWG\Contact(
- *             email="contact@mysite.com"
+ *             email="sergey_rus@bk.ru"
  *         ),
  *     ),
  * )
@@ -38,8 +38,8 @@ class DefaultController extends Controller
                 'cacheDuration' => 1,
                 'cacheKey' => 'swagger',
                 'scanDir' => [
-                    Yii::getAlias('@api/modules/v1/controllers'),
-                    Yii::getAlias('@api/modules/v1/models'),
+                    Yii::getAlias('@api/modules/v1'),
+                    Yii::getAlias('@api/modules/auth'),
                     Yii::getAlias('@docs/modules/v1/controllers'),
                 ],
             ],

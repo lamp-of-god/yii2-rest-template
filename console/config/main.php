@@ -6,7 +6,7 @@ $params = array_merge(
     require __DIR__ . '/params-local.php'
 );
 
-return [
+return array_merge_recursive([
     'id' => 'app-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -32,4 +32,12 @@ return [
         ],
     ],
     'params' => $params,
-];
+], [  // Delete/comment if app does not require authentication
+    'controllerMap' => [
+        'migrate-auth' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationNamespaces' => ['api\modules\auth\migrations'],
+            'migrationPath' => null,
+        ],
+    ],
+]);

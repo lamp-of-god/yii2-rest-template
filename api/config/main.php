@@ -1,4 +1,8 @@
 <?php
+
+use \yii\console\controllers\MigrateController;
+
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -6,7 +10,8 @@ $params = array_merge(
     require __DIR__ . '/params-local.php'
 );
 
-return [
+
+return array_merge_recursive([
     'id' => 'api',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'api\controllers',
@@ -42,4 +47,24 @@ return [
         ]
     ],
     'params' => $params,
-];
+], [  // Delete/comment if app does not require authentication
+    'controllerMap' => [
+        'migrate-auth' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationNamespaces' => ['api\modules\auth\migrations'],
+            'migrationPath' => null,
+        ],
+    ],
+    'modules' => [
+        'auth' => ['class' => 'api\modules\auth\Module'],
+    ],
+    'components' => [
+        'urlManager' => [
+            'rules' => [
+                'POST v1/auth/sign-in' => 'auth/auth/sign-in',
+                'POST v1/auth/sign-up' => 'auth/auth/sign-up',
+                'POST v1/auth/sign-out' => 'auth/auth/sign-out',
+            ],
+        ]
+    ],
+]);

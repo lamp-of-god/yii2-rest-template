@@ -4,11 +4,11 @@ namespace api\controllers;
 
 use Yii;
 use yii\filters\Cors;
-use yii\web\NotFoundHttpException;
+use yii\rest\Controller;
 use yii\web\Response;
 
 
-class BaseController extends \yii\rest\Controller
+class BaseController extends Controller
 {
     public function behaviors()
     {
@@ -24,6 +24,7 @@ class BaseController extends \yii\rest\Controller
             'cors' => [
                 'Origin' => ['*'],
                 'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+                'Access-Control-Allow-Headers' => ['content-type'],
             ],
         ];
 
@@ -38,7 +39,7 @@ class BaseController extends \yii\rest\Controller
         return ['error' => $exception->getMessage()];
     }
 
-    protected function success($result): array
+    protected function success(?array $result = null): array
     {
         return [
             'error'  => null,
